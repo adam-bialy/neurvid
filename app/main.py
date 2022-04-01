@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 from flask.views import MethodView
 from wtforms import FileField, Form, SubmitField
-from werkzeug.utils import secure_filename
 from app.net import Prediction
 
 
@@ -26,7 +25,8 @@ class HomePage(MethodView):
                 pred = Prediction(file).predict()
                 bird = self.d[pred]
                 path = f"birds/{bird[0].split('/')[0].strip().lower().replace('ó','o')}.jpg"
-            except:
+            except Exception as e:
+                print(e)
                 bird = ["Invalid file", "Please try a different picture"]
                 path = None
             return render_template("index.html", form=form, corvid_photo=path, bird=bird)
