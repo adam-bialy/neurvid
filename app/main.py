@@ -45,4 +45,3 @@ class PhotoForm(Form):
 
 
 app.add_url_rule("/", view_func=HomePage.as_view("home"))
-app.run(debug=True, port=5001)
