@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from flask.views import MethodView
 from wtforms import FileField, Form, SubmitField
 from werkzeug.utils import secure_filename
-from net import Prediction
+from app.net import Prediction
 import os
 
 
@@ -41,7 +41,7 @@ class HomePage(MethodView):
 
 class PhotoForm(Form):
     file = FileField("Select a picture")
-    submit = SubmitField("Identyfikuj")
+    submit = SubmitField("Identify")
 
 
 app.add_url_rule("/", view_func=HomePage.as_view("home"))

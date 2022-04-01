@@ -6,7 +6,7 @@ import numpy as np
 class Prediction:
 
     # using model v7-alt
-    model = load_model("nn-final.h5")
+    model = load_model("app/nn-final.h5")
     d = {0: 'Kawka', 1: 'Sroka', 2: 'Gawron', 3: 'Sójka', 4: 'Wrona', 5: 'Kruk'}
 
     def __init__(self, path):
