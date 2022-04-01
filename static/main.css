@@ -1,0 +1,115 @@
+body {
+  text-align: center;
+  color: #272727;
+  font-family: "Montserrat";
+}
+
+p {
+  line-height: 1.5;
+}
+
+.container-fluid {
+  padding: 3% 15%;
+}
+
+@media (max-width: 1200px) {
+  .container-fluid {
+    padding: 5% 5%;
+  }
+}
+
+@media (max-width: 765px) {
+  .container-fluid {
+    padding: 8% 5%;
+  }
+  .dis {
+    display: none;
+  }
+  .bird-icon {
+    padding: 5% 5%;
+  }
+}
+
+.section-dark {
+  background-color: #1F4287;
+  color: white;
+}
+
+.section-light {
+  background-color: #21E6C1;
+  color: #071E3D;
+}
+
+.title {
+  font-family: "Ubuntu";
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.heading{
+  font-size: 2.5rem;
+  line-height: 1;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.bird-row {
+  padding: 2% 0;
+  margin: 0 10%;
+}
+
+.bird-icon {
+  padding: 15% 15%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.form-div {
+  padding: 5% 7%;
+}
+
+input[type=file] {
+  margin: 0 auto 10px;
+    /* width: 50%;
+    padding: 8px 8px;
+    margin: 10px 0; */
+}
+
+input[type=submit] {
+  background-color: #21E6C1;
+  border-radius: 6px;
+    /* width: 50%;
+    padding: 12px 12px;
+    border-radius: 6px; */
+}
+
+.bird-div {
+  margin: 0 auto;
+}
+
+.designated-bird {
+  width: 320px;
+  height: 240px;
+  margin-bottom: 30px;
+}
+
+.bird-result{
+  font-size: 2rem;
+  line-height: 1;
+}
+
+
+#footer a {
+  color: white;
+}
+
+.i {
+  font-style: italic;
+}
