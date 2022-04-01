@@ -58,7 +58,9 @@
   <section id="identify" class="section-dark">
     <div class="container-fluid identify">
       <h2 class="heading">identify</h2>
-      <p>upload a picture of a corvid and select "identify"</p>
+      <p>upload a picture of a corvid and select "identify"<br>
+        <span class="i">image should be cropped to horizontal orientation (4x3 aspect ratio) before uploading</span>
+      </p>
       <div class="form-div">
         <form action="/#identify" method="post" enctype="multipart/form-data">
           {{form.file}} <br>
@@ -87,7 +89,7 @@
       <h2 class="heading">about</h2>
       <p>The network was built using Tensorlow library for Python. It consists of three convolutional + max-pooling layer pairs,
         with 96 filters in each. It was trained on ca. 1500 photos of 6 species of <span class="i">Corvidae</span>
-        found in Poland.</p>
+        scraped from Google Images.</p>
 
     </div>
 
