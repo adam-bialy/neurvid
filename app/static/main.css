@@ -6,10 +6,11 @@ body {
 
 p {
   line-height: 1.5;
+  font-size: 1.5rem;
 }
 
 .container-fluid {
-  padding: 3% 15%;
+  padding: 3% 13%;
 }
 
 .section-dark {
@@ -57,18 +58,19 @@ p {
   padding: 1% 10%;
 }
 
-input[type=file] {
-  width: 70%;
-  margin: 2% auto;
+#file {
+  width: 60%;
+  margin: 2% auto 3%;
   font-size: 1.5rem;
 }
 
-input[type=submit] {
-  margin: 2% auto 3%;
+#submit {
+  margin: 3% auto;
   padding: 1%;
   background-color: #21E6C1;
   font-size: 1.5rem;
   border-radius: 10px;
+  width: 25%;
 }
 
 .bird-div {
@@ -98,7 +100,7 @@ input[type=submit] {
 
 @media (max-width: 1200px) {
   .container-fluid {
-    padding: 5% 5%;
+    padding: 5% 7%;
   }
   p {
     font-size: 1.5rem;
@@ -110,12 +112,12 @@ input[type=submit] {
 
 @media (max-width: 765px) {
   .container-fluid {
-    padding: 8% 5%;
+    padding: 8% 7%;
   }
   .dis {
     display: none;
   }
   .bird-icon {
-    padding: 5% 5%;
+    padding: 20% 20%;
   }
 }
