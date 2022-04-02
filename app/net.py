@@ -24,3 +24,7 @@ class Prediction:
     def predict(self):
         prediction = self.model.predict(np.expand_dims(self.img, axis=0))
         return prediction.argmax()
+
+    def predict_top2(self):
+        prediction = self.model.predict(np.expand_dims(self.img, axis=0))
+        return prediction.argsort()[:,-2:].flatten()[::-1]

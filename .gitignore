@@ -1,3 +1,5 @@
 /imgs/
 /venv/
 /.idea/
+/app/templates/index-alt.html
+/app/templates/index-copy.html

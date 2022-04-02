@@ -72,9 +72,29 @@
       </div>
       <div class="bird-div">
         {% if corvid_photo %}
-        <img src="{{ url_for('static', filename=corvid_photo) }}" alt="" class="designated-bird">
-        {% endif %}
-        {% if bird %}
+        <div id="bird-id" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active container-fluid">
+              <p class="bird-result">Most likely it's a:</p>
+              <img src="{{ url_for('static', filename=corvid_photo[0]) }}" alt="" class="designated-bird">
+              <p class="bird-result">{{bird[0][0]}}</p>
+              <p class="bird-result"><span class="i">{{bird[0][1]}}</span></p>
+            </div>
+            <div class="carousel-item container-fluid">
+              <p class="bird-result">But it could also be a:</p>
+              <img src="{{ url_for('static', filename=corvid_photo[1]) }}" alt="" class="designated-bird">
+              <p class="bird-result">{{bird[1][0]}}</p>
+              <p class="bird-result"><span class="i">{{bird[1][1]}}</span></p>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#bird-id" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#bird-id" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+        {% else %}
         <p class="bird-result">{{bird[0]}}</p>
         <p class="bird-result"><span class="i">{{bird[1]}}</span></p>
         {% endif %}

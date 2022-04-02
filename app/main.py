@@ -17,19 +17,39 @@ class HomePage(MethodView):
         form = PhotoForm()
         return render_template("index.html", form=form, corvid_photo=None, bird=None)
 
+    # method for returning only one bird
+    # def post(self):
+    #     form = PhotoForm(request.files)
+    #     file = request.files['file']
+    #     if file:
+    #         try:
+    #             pred = Prediction(file).predict()
+    #             bird = self.d[pred]
+    #             path = f"birds/{bird[0].split('/')[0].strip().lower().replace('ó','o')}.jpg"
+    #         except Exception as e:
+    #             print(e)
+    #             bird = ["Invalid file", "Please try a different picture"]
+    #             path = None
+    #         return render_template("index.html", form=form, corvid_photo=path, bird=bird)
+    #     else:
+    #         bird = ["No file selected", "Please upload a file"]
+    #         return render_template("index.html", form=form, bird=bird)
+
+    # method for returning only two birds
     def post(self):
         form = PhotoForm(request.files)
         file = request.files['file']
         if file:
             try:
-                pred = Prediction(file).predict()
-                bird = self.d[pred]
-                path = f"birds/{bird[0].split('/')[0].strip().lower().replace('ó','o')}.jpg"
+                pred = Prediction(file).predict_top2()
+                birds = [self.d[i] for i in pred]
+                paths = [f"birds/{bird[0].split('/')[0].strip().lower().replace('ó','o')}.jpg" \
+                        for bird in birds]
             except Exception as e:
                 print(e)
-                bird = ["Invalid file", "Please try a different picture"]
-                path = None
-            return render_template("index.html", form=form, corvid_photo=path, bird=bird)
+                birds = ["Invalid file", "Please try a different picture"]
+                paths = None
+            return render_template("index.html", form=form, corvid_photo=paths, bird=birds)
         else:
             bird = ["No file selected", "Please upload a file"]
             return render_template("index.html", form=form, bird=bird)
