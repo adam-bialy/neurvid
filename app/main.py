@@ -2,9 +2,13 @@ from flask import Flask, render_template, request
 from flask.views import MethodView
 from wtforms import FileField, Form, SubmitField
 from app.net import Prediction
+from tensorflow.keras.models import load_model
 
 
 app = Flask(__name__)
+
+# using model v7-alt
+model = load_model("app/nn-final.h5")
 
 
 class HomePage(MethodView):
@@ -41,7 +45,7 @@ class HomePage(MethodView):
         file = request.files['file']
         if file:
             try:
-                pred = Prediction(file).predict_top2()
+                pred = Prediction(file, model).predict_top2()
                 birds = [self.d[i] for i in pred]
                 paths = [f"birds/{bird[0].split('/')[0].strip().lower().replace('ó','o')}.jpg" \
                         for bird in birds]
