@@ -7,7 +7,7 @@ from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
 
-# using model v7-alt
+# using model v2.0
 model = load_model("app/nn-final.h5")
 
 
