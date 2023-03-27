@@ -1,132 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
 
-<head>
-  <meta charset="utf-8">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='crow_solid.svg') }}"
+    />
 
-  <!-- Favicon -->
-  <link rel="icon" href="{{ url_for('static', filename='crow_solid.svg') }}">
+    <!-- Bootstrap and CSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
 
-  <!-- Bootstrap and CSS-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <title>--- Neurvid ---</title>
+  </head>
 
-  <title>--- Neurvid ---</title>
-
-</head>
-
-<body>
-  <section id="title" class="section-light">
-
-    <div class="container-fluid">
-      <h1 class="title">neurvid</h1>
-      <div class="row bird-row">
-        <div class="col-lg-2 col-md-4">
-          <img src="{{ url_for('static', filename='bird_icons/1.png') }}" alt="" class="bird-icon">
+  <body>
+    <section id="title" class="section-light">
+      <div class="container-fluid">
+        <h1 class="title">neurvid</h1>
+        <div class="row bird-row">
+          <div class="col-lg-2 col-md-4">
+            <img
+              src="{{ url_for('static', filename='bird_icons/1.png') }}"
+              alt=""
+              class="bird-icon"
+            />
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <img
+              src="{{ url_for('static', filename='bird_icons/2.png') }}"
+              alt=""
+              class="bird-icon dis"
+            />
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <img
+              src="{{ url_for('static', filename='bird_icons/3.png') }}"
+              alt=""
+              class="bird-icon dis"
+            />
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <img
+              src="{{ url_for('static', filename='bird_icons/4.png') }}"
+              alt=""
+              class="bird-icon dis"
+            />
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <img
+              src="{{ url_for('static', filename='bird_icons/5.png') }}"
+              alt=""
+              class="bird-icon dis"
+            />
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <img
+              src="{{ url_for('static', filename='bird_icons/6.png') }}"
+              alt=""
+              class="bird-icon dis"
+            />
+          </div>
         </div>
-        <div class="col-lg-2 col-md-4">
-          <img src="{{ url_for('static', filename='bird_icons/2.png') }}" alt="" class="bird-icon dis">
-        </div>
-        <div class="col-lg-2 col-md-4">
-          <img src="{{ url_for('static', filename='bird_icons/3.png') }}" alt="" class="bird-icon dis">
-        </div>
-        <div class="col-lg-2 col-md-4">
-          <img src="{{ url_for('static', filename='bird_icons/4.png') }}" alt="" class="bird-icon dis">
-        </div>
-        <div class="col-lg-2 col-md-4">
-          <img src="{{ url_for('static', filename='bird_icons/5.png') }}" alt="" class="bird-icon dis">
-        </div>
-        <div class="col-lg-2 col-md-4">
-          <img src="{{ url_for('static', filename='bird_icons/6.png') }}" alt="" class="bird-icon dis">
-        </div>
+        <h2 class="subtitle">
+          identify a bird from <span class="i">Corvidae</span> family using our
+          neural network
+        </h2>
       </div>
-      <h2 class="subtitle">identify a bird from <span class="i">Corvidae</span> family using our neural network</h2>
-    </div>
+    </section>
 
-  </section>
-
-  <section id="identify" class="section-dark">
-    <div class="container-fluid identify">
-      <h2 class="heading">identify</h2>
-      <p>upload a picture of a bird and select "identify"<br>
-        <span class="i">image should be cropped to horizontal orientation (ca. 4:3 aspect ratio) before uploading</span>
-      </p>
-      <div class="form-div">
-        <form action="/#identify" method="post" enctype="multipart/form-data">
-          {{form.file}} <br>
-          {{form.submit}}
-          <!-- <input type="file" class="form-control-file" id="birdfile">
+    <section id="identify" class="section-dark">
+      <div class="container-fluid identify">
+        <h2 class="heading">identify</h2>
+        <p>
+          upload a picture of a bird and select "identify"<br />
+          <span class="i"
+            >image should be cropped to horizontal orientation (ca. 4:3 aspect
+            ratio) before uploading</span
+          >
+        </p>
+        <div class="form-div">
+          <form action="/#identify" method="post" enctype="multipart/form-data">
+            {{form.file}} <br />
+            {{form.submit}}
+            <!-- <input type="file" class="form-control-file" id="birdfile">
           <br>
           <button type="submit" class="btn btn-lg btn-primary" name="button">Submit</button> -->
-        </form>
-      </div>
-      <div class="bird-div">
-        {% if corvid_photo %}
-        <div id="bird-id" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active container-fluid">
-              <p class="bird-result">Most likely it's a:</p>
-              <img src="{{ url_for('static', filename=corvid_photo[0]) }}" alt="" class="designated-bird">
-              <p class="bird-result">{{bird[0][0]}}</p>
-              <p class="bird-result"><span class="i">{{bird[0][1]}}</span></p>
-            </div>
-            <div class="carousel-item container-fluid">
-              <p class="bird-result">But it could also be a:</p>
-              <img src="{{ url_for('static', filename=corvid_photo[1]) }}" alt="" class="designated-bird">
-              <p class="bird-result">{{bird[1][0]}}</p>
-              <p class="bird-result"><span class="i">{{bird[1][1]}}</span></p>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#bird-id" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </a>
-          <a class="carousel-control-next" href="#bird-id" role="button" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </a>
+          </form>
         </div>
-        {% else %}
-        <p class="bird-result">{{bird[0]}}</p>
-        <p class="bird-result"><span class="i">{{bird[1]}}</span></p>
-        {% endif %}
+        <div class="bird-div">
+          {% if corvid_photo %}
+          <div id="bird-id" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active container-fluid">
+                <p class="bird-result">Most likely it's a:</p>
+                <img
+                  src="{{ url_for('static', filename=corvid_photo[0]) }}"
+                  alt=""
+                  class="designated-bird"
+                />
+                <p class="bird-result">{{bird[0][0]}}</p>
+                <p class="bird-result"><span class="i">{{bird[0][1]}}</span></p>
+              </div>
+              <div class="carousel-item container-fluid">
+                <p class="bird-result">But it could also be a:</p>
+                <img
+                  src="{{ url_for('static', filename=corvid_photo[1]) }}"
+                  alt=""
+                  class="designated-bird"
+                />
+                <p class="bird-result">{{bird[1][0]}}</p>
+                <p class="bird-result"><span class="i">{{bird[1][1]}}</span></p>
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#bird-id"
+              role="button"
+              data-slide="prev"
+            >
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#bird-id"
+              role="button"
+              data-slide="next"
+            >
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+          {% else %}
+          <p class="bird-result">{{bird[0]}}</p>
+          <p class="bird-result"><span class="i">{{bird[1]}}</span></p>
+          {% endif %}
+        </div>
       </div>
+    </section>
 
-    </div>
+    <section id="about" class="section-light">
+      <div class="container-fluid">
+        <h2 class="heading">about</h2>
+        <p>
+          The network was built using TensorFlow library for Python. It consists
+          of three convolutional + max-pooling layer pairs, with 96 filters in
+          each. It was trained on ca. 1500 photos of 6 species of
+          <span class="i">Corvidae</span> scraped from Google Images.
+        </p>
+      </div>
+    </section>
 
-  </section>
+    <section id="footer" class="section-dark">
+      <div class="container-fluid">
+        <p>Built with Flask and Tensorflow</p>
+        <p>
+          © Copyright 2022
+          <a href="https://adamgrzelak.com/" target="_blank">Adam Grzelak</a>
+        </p>
+        <a href="https://www.flaticon.com/authors/freepik" title="raven icons"
+          >Bird icons created by Freepik - Flaticon</a
+        >
+        <br />
+        <a href="https://en.wikipedia.org/wiki/Main_Page" title="raven icons"
+          >Bird photos: Wikipedia</a
+        >
+      </div>
+    </section>
 
-  <section id="about" class="section-light">
-    <div class="container-fluid">
-      <h2 class="heading">about</h2>
-      <p>The network was built using TensorFlow library for Python. It consists of three convolutional + max-pooling layer pairs,
-        with 96 filters in each. It was trained on ca. 1500 photos of 6 species of <span class="i">Corvidae</span>
-        scraped from Google Images.</p>
-
-    </div>
-
-  </section>
-
-  <section id="footer" class="section-dark">
-
-    <div class="container-fluid">
-      <p>Built with Flask and Tensorflow</p>
-      <p>© Copyright 2022 <a href="https://adamgrzelak.com/" target="_blank">Adam Grzelak</a></p>
-      <a href="https://www.flaticon.com/authors/freepik" title="raven icons">Bird icons created by Freepik - Flaticon</a>
-      <br>
-      <a href="https://en.wikipedia.org/wiki/Main_Page" title="raven icons">Bird photos: Wikipedia</a>
-    </div>
-
-  </section>
-
-  <!-- Bootstrap JS scripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-</body>
-
+    <!-- Bootstrap JS scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

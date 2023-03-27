@@ -4,7 +4,7 @@ from PIL import Image
 
 class Prediction:
 
-    d = {0: 'Kawka', 1: 'Sroka', 2: 'Gawron', 3: 'Sójka', 4: 'Wrona', 5: 'Kruk'}
+    d = {0: "Kawka", 1: "Sroka", 2: "Gawron", 3: "Sójka", 4: "Wrona", 5: "Kruk"}
 
     def __init__(self, file, model):
         # find the shape expected by the model
@@ -17,7 +17,7 @@ class Prediction:
         # find the filetype
         filetype = file.filename.split(".")[-1].lower()
         if filetype == "png" and self.img.shape[-1] == 4:
-            self.img = self.img[:,:,:-1]
+            self.img = self.img[:, :, :-1]
 
     def predict(self):
         prediction = self.model.predict(np.expand_dims(self.img, axis=0))
@@ -25,4 +25,4 @@ class Prediction:
 
     def predict_top2(self):
         prediction = self.model.predict(np.expand_dims(self.img, axis=0))
-        return prediction.argsort()[:,-2:].flatten()[::-1]
+        return prediction.argsort()[:, -2:].flatten()[::-1]
